@@ -42,3 +42,18 @@ This will:
 - Linux (reads `/proc/stat`, `/proc/meminfo`)
 - Python 3
 - Bash
+
+---
+
+## Deliverables
+
+Screenshots proving lab completion. Upload to the [`deliverables/`](deliverables/) folder when done.
+
+| # | File | What to Capture |
+|---|---|---|
+| 1 | `deliverables/01_script_run.png` | Terminal running `./run_audit.sh` successfully |
+| 2 | `deliverables/02_report_output.png` | Full audit report printed to terminal screen |
+| 3 | `deliverables/03_report_file.png` | `cat audit_report.txt` showing saved report contents |
+| 4 | `deliverables/04_python_direct.png` | Terminal running `python3 check_usage.py` directly |
+| 5 | `deliverables/05_archive_listing.png` | `ls reports/` showing timestamped archived report |
+| 6 | `deliverables/06_repo_overview.png` | GitHub repo page showing all committed files |
