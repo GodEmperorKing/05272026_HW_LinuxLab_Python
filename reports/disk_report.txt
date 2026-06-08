@@ -1,0 +1,7 @@
+SERVER DISK USAGE REPORT
+========================
+OK: web01 is at 45% disk usage
+WARNING: web02 is at 82% disk usage
+WARNING: db01 is at 91% disk usage
+OK: cache01 is at 63% disk usage
+OK: backup01 is at 77% disk usage
