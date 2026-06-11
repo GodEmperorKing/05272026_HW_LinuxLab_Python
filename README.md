@@ -1,59 +1,102 @@
-# Linux Python Lab – Disk Usage Audit Tool
+# Linux Python Lab  Disk Usage Audit Tool
 
-This project implements a simple server disk-usage auditing workflow using:
+![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python) ![Bash](https://img.shields.io/badge/Bash-Script-green?logo=gnubash) ![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey?logo=linux)
 
-- A Bash automation script (`run_audit.sh`)
-- A Python processing script (`check_usage.py`)
-- A generated report (`audit_report.txt`)
-- Archived reports saved to the `reports/` folder
-
-The goal of the lab was to practice:
-
-- File I/O in Python
-- Bash scripting
-- Error handling
-- Cross-script integration
-- Enhancing existing code with custom improvements
+A cross-script disk-usage auditing workflow built for a Linux lab environment. A Bash driver script invokes a Python collector to gather CPU, memory, disk, and process metrics, writes a timestamped report, and archives it automatically.
 
 ---
 
-## How to Run
+##  Project Structure
 
-```bash
-./run_audit.sh
 ```
+05272026_HW_LinuxLab_Python/
+ check_usage.py          # Python: collects system metrics
+  run_audit.sh            # Bash: orchestrates the full audit
+   audit_report.txt        # Latest generated report
+    data/                   # Raw data inputs
+     reports/                # Archived timestamped reports
+      scripts/                # Additional helper scripts
+       deliverables/
+            screenshots/        # All lab screenshots
+                    script_run.png
+                            audit_report_output.png
+                                    python_scripts_run.png
+                                            reports_archive.png
+                                                 README.md
+                                                 ```
 
-This will:
-1. Run `check_usage.py` to collect CPU, memory, disk, and process metrics
-2. Write the results to `audit_report.txt`
-3. Save a timestamped copy to `reports/`
+                                                 ---
 
-## Files
+                                                 ##  How to Run
 
-| File | Description |
-|---|---|
-| `check_usage.py` | Python script that reads `/proc` and `os.statvfs` to gather system metrics |
-| `run_audit.sh` | Bash runner that executes the Python script, logs output, and archives reports |
-| `audit_report.txt` | Latest generated system usage report |
-| `reports/` | Folder containing timestamped archive copies of past reports |
+                                                 ```bash
+                                                 ./run_audit.sh
+                                                 ```
 
-## Requirements
+                                                 This will:
+                                                 1. Run `check_usage.py` to collect CPU, memory, disk, and process metrics
+                                                 2. Write results to `audit_report.txt`
+                                                 3. Save a timestamped copy to `reports/`
 
-- Linux (reads `/proc/stat`, `/proc/meminfo`)
-- Python 3
-- Bash
+                                                 > **Note:** Make sure the script is executable: `chmod +x run_audit.sh`
 
----
+                                                 ---
 
-## Deliverables
+                                                 ##  Python Script  `check_usage.py`
 
-Screenshots proving lab completion. Upload to the [`deliverables/`](deliverables/) folder when done.
+                                                 Collects and formats system metrics using the `psutil` library:
 
-| # | File | What to Capture |
-|---|---|---|
-| 1 | `deliverables/01_script_run.png` | Terminal running `./run_audit.sh` successfully |
-| 2 | `deliverables/02_report_output.png` | Full audit report printed to terminal screen |
-| 3 | `deliverables/03_report_file.png` | `cat audit_report.txt` showing saved report contents |
-| 4 | `deliverables/04_python_direct.png` | Terminal running `python3 check_usage.py` directly |
-| 5 | `deliverables/05_archive_listing.png` | `ls reports/` showing timestamped archived report |
-| 6 | `deliverables/06_repo_overview.png` | GitHub repo page showing all committed files |
+                                                 | Metric | Description |
+                                                 |--------|-------------|
+                                                 | CPU Usage | Current CPU utilization (%) |
+                                                 | Memory | Total, used, and free RAM |
+                                                 | Disk | Usage per mounted partition |
+                                                 | Processes | Top running processes by CPU |
+
+                                                 ---
+
+                                                 ##  Files
+
+                                                 | File | Description |
+                                                 |------|-------------|
+                                                 | `check_usage.py` | Python metric collector |
+                                                 | `run_audit.sh` | Bash automation driver |
+                                                 | `audit_report.txt` | Most recent audit output |
+                                                 | `reports/` | Archive of all past reports |
+                                                 | `data/` | Lab input data |
+                                                 | `scripts/` | Additional helper scripts |
+                                                 | `deliverables/screenshots/` | Lab evidence screenshots |
+
+                                                 ---
+
+                                                 ##  Screenshots
+
+                                                 ### Script Execution
+                                                 ![Script Run](deliverables/screenshots/script_run.png
+                                                 ### Python Scripts Running
+                                                 ![Python Scripts Run](deliverables/screenshots/python_scripts_run.png
+                                                 ### Audit Report Output
+                                                 ![Audit Report Output](deliverables/screenshots/audit_report_output.png
+                                                 ### Reports Archive
+                                                 ![Reports Archive](deliverables/screenshots/reports_archive.png
+                                                 ---
+
+                                                 ##  Requirements
+
+                                                 - Python 3.x
+                                                 - `psutil` library  `pip install psutil`
+                                                 - Bash (Linux/macOS)
+
+                                                 ---
+
+                                                 ##  Learning Objectives
+
+                                                 - File I/O in Python
+                                                 - Bash scripting and automation
+                                                 - Error handling across scripts
+                                                 - Cross-script integration (Bash  Python)
+                                                 - Enhancing existing code with custom improvements
+
+                                                 ---
+
+                                                 *Lab completed: May 27, 2026  GodEmperorKing*
