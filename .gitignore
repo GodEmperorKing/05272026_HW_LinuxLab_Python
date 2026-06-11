@@ -1,44 +1,86 @@
-# Local .terraform directories
-**/.terraform/*
+# =============================================================
+# .gitignore for Python + Bash project
+# =============================================================
 
-# .tfstate files
-*.tfstate
-*.tfstate.*
+# ---------------------------
+# Python
+# ---------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
 
-# Crash log files
-crash.log
-crash.*.log
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
 
-# Exclude all .tfvars files, which are likely to contain sensitive data, such as
-# passwords, private keys, and other secrets. These should not be part of version
-# control as they are data points which are potentially sensitive and subject
-# to change depending on the environment.
-*.tfvars
-*.tfvars.json
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
 
-# Ignore override files as they are usually used to override resources locally and so
-# are not checked in
-override.tf
-override.tf.json
-*_override.tf
-*_override.tf.json
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# Ignore transient lock info files created by terraform apply
-.terraform.tfstate.lock.info
+# Unit test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
 
-# Include override files you do wish to add to version control using negated pattern
-# !example_override.tf
+# mypy / pyright type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyright/
 
-# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
-# example: *tfplan*
+# Jupyter Notebooks
+.ipynb_checkpoints/
 
-# Ignore CLI configuration files
-.terraformrc
-terraform.rc
+# ---------------------------
+# Environment / secrets
+# ---------------------------
+.env
+.env.*
+*.env
+secrets.txt
 
-# Ignore keys
-# *.json 
+# ---------------------------
+# Bash / Shell
+# ---------------------------
+*.sh.swp
 
-.terraform.lock.hcl
-example.kubeconfig
-*.mp4
+# ---------------------------
+# Generated reports (keep dir, ignore output files)
+# ---------------------------
+reports/disk_report_*.txt
+reports/disk_report_latest.txt
+audit_report.txt
+
+# ---------------------------
+# OS / Editor artifacts
+# ---------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# ---------------------------
+# Logs
+# ---------------------------
+*.log
+logs/
