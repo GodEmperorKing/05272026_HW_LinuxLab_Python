@@ -16,6 +16,8 @@ Add your screenshots here after running the lab.
 
 ## Notes
 
-- Run `./run_audit.sh` from the project root directory
-- Make sure `check_usage.py` and `run_audit.sh` are in the same folder
-- Screenshots can be uploaded directly to this `deliverables/` folder on GitHub
+All screenshots were captured from the final working version of the project.
+
+The audit workflow validates the environment, processes the data file, and generates a complete disk‑usage report.
+
+These deliverables serve as visual proof of lab execution and completion.
