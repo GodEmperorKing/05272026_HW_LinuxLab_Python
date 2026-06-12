@@ -1,98 +1,67 @@
-🐧 Linux Lab – Python Disk Usage Audit
-This project implements a simple automated disk‑usage audit workflow using a Bash script and a Python script.
-The goal of the lab is to practice Linux scripting, Python file parsing, and cross‑script integration while generating a clean, timestamped disk‑usage report.
+# 🐧 Linux Python Lab – Server Disk Usage Audit
 
-📂 Project Overview
-The workflow consists of:
+[![Python 3.x](https://img.shields.io/badge/python-3.x-blue.svg)]() 
+[![Bash](https://img.shields.io/badge/shell-bash-green.svg)]() 
 
-run_audit.sh  
-A Bash automation script that:
+A modular, automated disk-usage auditing tool designed for Linux environments. This lab demonstrates cross-script orchestration, file parsing, and robust error handling.
 
-Logs a timestamp
+---
 
-Detects a working Python interpreter
+## 🏗️ Project Architecture
+```text
+05272026_HW_LinuxLab_Python/
+├── run_audit.sh           # Bash Driver (Orchestrator)
+├── check_usage.py         # Python Logic (Parser)
+├── server_usage.txt       # Input Data (Source of Truth)
+├── audit_report.txt       # Generated Output
+└── deliverables/          # Lab evidence (screenshots)
 
-Validates required files
+---
 
-Executes the Python script
+🛠️ Workflow Execution
+1. Metadata Logging: run_audit.sh records the execution timestamp.
 
-Reports success or failure
+2. Environment Validation: Checks for the presence of input data and a functional Python interpreter.
 
-scripts/check_usage.py  
-A Python script that:
+3. Automated Auditing: Invokes check_usage.py to parse disk usage data and evaluate it against thresholds.
 
-Reads server usage data
+4. Report Generation: Saves the processed output to a structured text file for review.
 
-Sorts usage values
+---
 
-Flags high‑usage servers
+🚀 How to Run
+From the project root: chmod +x run_audit.sh
+./run_audit.sh
 
-Calculates averages
+---
 
-Generates a formatted report
+🧩 Reflection (Commands + Purpose)
+This lab focused on the "Bash Driver" pattern—using shell scripts to orchestrate Python logic.
 
-data/server_usage.txt  
-The input data file containing disk‑usage values.
+echo – Tracks progress and provides console feedback during execution.
 
-reports/disk_report.txt  
-The generated output report.
+date – Stamps the audit with a clear completion time.
 
-deliverables/  
-Contains screenshots and documentation proving successful execution.
+if [ ! -f ... ] – Logic gate to ensure the input data exists before attempting to parse it.
 
-▶️ How to Run the Audit
-From the project root: ./run_audit.sh
-This will:
+python3 – Invokes the Python interpreter to execute the disk usage logic.
 
-Validate the environment
+cat – Displays the generated audit_report.txt in the terminal for immediate verification.
 
-Run the Python script
+chmod +x – Grants the necessary execution permissions to the driver.
 
-Generate a timestamped report
+---
 
-Save it to reports/disk_report.txt
+⚠️ Challenges (Refactoring & Environment)
+Interpreter Inconsistencies: Different environments use python, python3, or py. The driver was designed to handle these variations to ensure reliability across systems.
 
-To view the report: cat reports/disk_report.txt
+Whitespace Parsing: The input file required careful string splitting and type casting (int()) to ensure the Python script correctly interpreted the usage percentages.
 
-🧠 What I Learned
-Working through this lab reinforced several key concepts:
+Modularization: I opted for a flat project structure for this lab to maintain simplicity while still separating the Bash orchestrator from the Python logic.
 
-✔ Linux scripting fundamentals
-Creating a Bash script that validates the environment and executes another script.
+---
 
-✔ Python file parsing
-Reading structured text, splitting values, sorting, and generating formatted output.
+🎓 Key Takeaways
+Orchestration: Using Bash to handle file paths and environment prep allows the Python logic to remain focused purely on data processing.
 
-✔ Cross‑script integration
-Using Bash to orchestrate Python execution and manage file paths.
-
-✔ Error handling
-Ensuring the workflow fails cleanly when files or interpreters are missing.
-
-⚠️ Challenges Encountered
-1. Parsing whitespace‑based data
-The original usage file required careful splitting and trimming to ensure Python parsed each line correctly.
-
-2. Interpreter inconsistencies
-Different systems use python, python3, or py.
-The Bash script was updated to detect a working interpreter automatically.
-
-3. Directory structure issues
-Ensuring the reports/ directory existed before writing the output file.
-
-📸 Deliverables
-All screenshots demonstrating the working audit process are located in: deliverables/screenshots/
-These include:
-
-Running the Bash script
-
-Viewing the generated report
-
-Running the Python script directly
-
-Listing the reports directory
-
-Viewing the report file
-
-
-
+Data Integrity: Implementing error handling (try/except) ensures the script doesn't crash if the data file is missing or corrupted.
